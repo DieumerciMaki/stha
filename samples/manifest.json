@@ -1,0 +1,5 @@
+[
+  {"id":"example_0","title":"Exemple externe 1","source":"https://github.com/CatSatOK/litter-detection-yolov11/blob/main/example_0.jpg","description":"Photographie exemple publiée par CatSatOK pour tester son modèle. Lieu non vérifié, hors collecte de terrain de Goma."},
+  {"id":"example_1","title":"Exemple externe 2","source":"https://github.com/CatSatOK/litter-detection-yolov11/blob/main/example_1.jpg","description":"Photographie exemple publiée par CatSatOK pour tester son modèle. Lieu non vérifié, hors collecte de terrain de Goma."},
+  {"id":"example_2","title":"Exemple externe 3","source":"https://github.com/CatSatOK/litter-detection-yolov11/blob/main/example_2.jpg","description":"Photographie exemple publiée par CatSatOK pour tester son modèle. Lieu non vérifié, hors collecte de terrain de Goma."}
+]

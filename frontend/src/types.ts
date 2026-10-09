@@ -1,0 +1,11 @@
+export type Page = 'dashboard' | 'observations' | 'analyses' | 'map' | 'reviews' | 'model' | 'settings';
+export type User = {id:string;name:string;login:string;role:'admin'|'agent'|'reviewer';active:boolean};
+export type Review = {id:number;decision:'accepted'|'rejected'|'uncertain';comment:string;created_at:string;reviewer:string};
+export type Instance = {class_id:number;label:string;label_original:string;confidence:number;area_pixels:number;box:number[];polygon:number[][]};
+export type Result = {instances:Instance[];instance_count:number;coverage_percent:number;segmented_pixels:number;duration_seconds:number;model:string;model_sha256:string;model_revision:string;dataset:string;width:number;height:number;confidence_threshold:number;device:string;interpretation:string};
+export type Analysis = {id:string;observation_id:string;status:'queued'|'running'|'completed'|'failed';created_at:string;finished_at:string|null;confidence:number;error:string|null;result:Result|null;reviews:Review[];latest_review:Review|null;overlay_url:string|null;mask_url:string|null};
+export type Observation = {id:string;title:string;neighborhood:string;location:string;notes:string;latitude:number|null;longitude:number|null;coordinate_source:string|null;captured_at:string|null;created_at:string;width:number;height:number;image_url:string;image_sha256:string;original_sha256:string;latest_analysis:Analysis|null;analyses:Analysis[]};
+export type Settings = {city:string;project_name:string;default_confidence:number};
+export type ModelInfo = {configured:boolean;name:string|null;message:string;architecture?:string;source?:string|null;dataset?:string;sha256?:string;revision?:string;size_bytes?:number;class_names?:string[];limitations?:string;local_evaluation?:null|{mask_map50:number;mask_map50_95:number;dataset_sha256:string;split:string;evaluated_at:string};license_declared_by_author?:string;runtime_license?:string};
+export type Workspace = {observations:Observation[];settings:Settings;model:ModelInfo};
+export type Sample = {id:string;title:string;source:string;description:string};

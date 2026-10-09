@@ -1,0 +1,12 @@
+.env
+.venv/
+data/
+runtime/
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+.pytest_cache/
+docs/qa/
+models/*.pt
+samples/*.jpg
+backups/

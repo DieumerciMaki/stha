@@ -1,0 +1,40 @@
+services:
+  database:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: waste_project
+      POSTGRES_USER: waste_app
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Définissez POSTGRES_PASSWORD}
+    volumes: [postgres_data:/var/lib/postgresql]
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U waste_app -d waste_project]
+      interval: 5s
+      retries: 10
+  redis:
+    image: redis:7-alpine
+    command: [redis-server, --appendonly, 'yes']
+    volumes: [redis_data:/data]
+  web:
+    build: .
+    ports: [127.0.0.1:8001:8001]
+    environment:
+      DATABASE_URL: postgresql+psycopg://waste_app:${POSTGRES_PASSWORD}@database:5432/waste_project
+      JOB_MODE: celery
+      REDIS_URL: redis://redis:6379/0
+    volumes: [./data:/project/data]
+    depends_on:
+      database: {condition: service_healthy}
+      redis: {condition: service_started}
+  worker:
+    build: .
+    command: [python, -m, celery, -A, app.worker:celery, worker, --loglevel=info, --concurrency=1]
+    environment:
+      DATABASE_URL: postgresql+psycopg://waste_app:${POSTGRES_PASSWORD}@database:5432/waste_project
+      JOB_MODE: celery
+      REDIS_URL: redis://redis:6379/0
+    volumes: [./data:/project/data]
+    depends_on:
+      web: {condition: service_started}
+volumes:
+  postgres_data:
+  redis_data:

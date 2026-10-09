@@ -1,0 +1,45 @@
+/* Header, navigation groups and account footer follow the shadcn/ui sidebar structure. */
+.sidebar{width:248px;padding:12px 10px;background:#fafafa;border-right:1px solid #e4e4e7}
+.main-content{margin-left:248px}
+.sidebar-header{display:flex;align-items:center;gap:4px;min-height:68px;padding:6px 2px 18px}
+.sidebar-project{display:flex;align-items:center;gap:10px;min-width:0;flex:1;color:#18181b}
+.sidebar-project:hover{text-decoration:none}
+.project-symbol{display:flex;align-items:center;justify-content:center;width:36px;height:36px;flex-shrink:0;border-radius:7px;background:#27272a;color:white}
+.project-label{min-width:0;display:block}
+.project-label strong{display:block;font-size:14px;font-weight:600;line-height:1.3;letter-spacing:-.2px;overflow-wrap:anywhere}
+.project-label small{display:block;margin-top:3px;color:#71717a;font-size:12px}
+.sidebar-toggle{color:#71717a;min-width:26px;padding:4px}
+.sidebar nav{flex:1;overflow-y:auto;overflow-x:hidden;gap:0;padding-top:8px}
+.nav-group{padding:0 0 20px}
+.nav-group-label{font-size:11px;font-weight:500;color:#71717a;padding:6px 10px 9px}
+.nav-item{position:relative;min-height:38px;gap:10px;padding:9px 10px;margin:3px 0;border-radius:6px;font-size:13px;color:#52525b}
+.nav-item svg{color:#71717a}
+.nav-item:hover{background:#f0f0f2;color:#18181b;text-decoration:none}
+.nav-item.active{background:#e9e9ec;color:#18181b;font-weight:600}
+.nav-item.active svg{color:#27272a}
+.nav-item.active:before{content:'';position:absolute;left:0;top:11px;bottom:11px;width:2px;background:#27272a;border-radius:1px}
+.nav-item .nav-count{margin-left:auto;min-width:20px;padding:1px 5px;background:#dedee3;border-radius:4px;color:#3f3f46;font-weight:500}
+.sidebar-account{flex-shrink:0;margin-top:auto;padding-top:10px;border-top:1px solid #e4e4e7}
+.profile-button{gap:9px;padding:8px 6px;border-radius:6px;font-size:12px;min-height:52px}
+.profile-button:hover{background:#eeeeef}
+.avatar{width:32px;height:32px;border-radius:6px;background:#e4e4e7;color:#52525b}
+.profile-label{font-weight:500}
+.profile-label small{font-size:11px;font-weight:400;color:#71717a}
+.profile-chevron{color:#71717a;flex-shrink:0}
+.account-popover{bottom:62px;z-index:40;min-width:210px;right:0;left:0;border:1px solid #e4e4e7;border-radius:7px;box-shadow:0 4px 14px #18181b12}
+.account-popover button{border-radius:4px;font-size:12px}
+@media(min-width:761px){
+  .sidebar-collapsed .sidebar{width:68px;padding:12px 8px}
+  .sidebar-collapsed .main-content{margin-left:68px}
+  .sidebar-collapsed .sidebar-header{flex-direction:column;gap:8px;padding:4px 0 12px;min-height:90px}
+  .sidebar-collapsed .sidebar-project{flex:none}
+  .sidebar-collapsed .project-label,.sidebar-collapsed .nav-text,.sidebar-collapsed .nav-group-label,.sidebar-collapsed .nav-count,.sidebar-collapsed .profile-label,.sidebar-collapsed .profile-chevron{display:none}
+  .sidebar-collapsed .nav-item{justify-content:center;padding:10px 0;min-height:40px}
+  .sidebar-collapsed .nav-group+.nav-group{border-top:1px solid #e4e4e7;padding-top:12px}
+  .sidebar-collapsed .profile-button{justify-content:center;padding:8px 0}
+}
+@media(max-width:760px){
+  .sidebar{width:248px;max-width:calc(100vw - 48px)}
+  .main-content{margin-left:0}
+  .sidebar-toggle{display:none}
+}

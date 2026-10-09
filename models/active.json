@@ -1,0 +1,14 @@
+{
+  "name": "YOLO11s segmentation des déchets",
+  "architecture": "YOLO11s segmentation d’instances",
+  "weights": "models/waste-yolo11s-seg.pt",
+  "sha256": "e48518a798b05ef6a8a123526aedc6ee9afe508796dd0b1bc37c0c2eb333a164",
+  "revision": "25a03cf200441cfd9e8e62ded5529e49562bd96b",
+  "source": "https://huggingface.co/CatSat/yolov11-litter-materials",
+  "dataset": "TACO catégories regroupées par matériau",
+  "class_names": ["Plastic", "Metal", "Glass", "Paper", "Other"],
+  "license_declared_by_author": "MIT",
+  "runtime_license": "Ultralytics AGPL-3.0 ou Enterprise",
+  "local_evaluation": null,
+  "limitations": "Modèle externe de déchets individuels, non évalué sur Goma. Il peut manquer des objets ou confondre leurs matériaux. Le masque global est l’union des instances ; il ne garantit pas la délimitation complète d’un dépôt."
+}
